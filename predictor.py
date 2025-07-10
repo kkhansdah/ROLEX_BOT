@@ -1,10 +1,7 @@
-from analyzer import analyze_data, predict_numbers
+from analyzer import analyze_data
 
-if __name__ == "__main__":
-    data_file = "data/history.csv"
-    recent_data = analyze_data(data_file)
-    prediction, scores = predict_numbers(recent_data)
-
-    print("🔮 Predicted Numbers:")
-    for num, score in zip(prediction, scores):
-        print(f"Number: {num}, Confidence: {score:.2f}%")
+def predict_numbers(file_path):
+    top_numbers = analyze_data(file_path)
+    if not top_numbers:
+        return "No data found."
+    return f"Predicted top numbers: {', '.join(top_numbers)}"
