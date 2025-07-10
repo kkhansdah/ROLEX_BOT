@@ -20,29 +20,29 @@ def get_prediction(numbers):
     train_memory(numbers)
 
     freq = Counter(numbers)
-    recent = numbers[-3:]
     mirror_scores = Counter()
     gap_scores = Counter()
     modulo_scores = Counter()
     pattern_scores = Counter()
 
+    # GAP logic
     for i in range(len(numbers) - 1):
         gap = abs(numbers[i] - numbers[i + 1])
         gap_scores[gap] += 1
 
+    # Mirror + Modulo logic
     for n in numbers:
         mirror_scores[mirror(n)] += 1
         modulo_scores[n % 3] += 1
 
+    # Pattern logic (based on last number)
     last = numbers[-1]
     for n in pattern_memory[last]:
         pattern_scores[n] += pattern_memory[last][n] * 2
 
+    # Final smart score (no repeat restriction)
     combined_scores = Counter()
-    for n in range(10):
-        if n in recent:
-            continue
-
+    for n in range(10):  # 0 to 9
         combined_scores[n] += freq[n] * 1.2
         combined_scores[n] += mirror_scores[n] * 1.2
         combined_scores[n] += gap_scores[n] * 1.1
