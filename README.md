@@ -1,15 +1,16 @@
-# 🎯 Ultra Number AI Prediction Bot
+# KWG Advanced Predictor 🔮
 
-A Telegram bot that predicts 3 best numbers using AI-based logic:
-- Pattern Memory
-- Mirror Logic
-- Modulo Analysis
-- Gap Detection
-- No dummy repeats
+A smart prediction bot that uses:
 
-## 🤖 Commands
+- Frequency Analysis
+- Gap Tracking
+- Weighted Scoring System
 
-- `/start` → Start the bot
-- `/predict 3 1 4 5 9 2 6 8 7 0` → Get smart prediction
+### 🚀 How to Use
 
-Built with ❤️ using Python and `python-telegram-bot`.
+1. Add your game data to `data/history.csv`
+2. Run the predictor:
+
+```bash
+pip install -r requirements.txt
+python predictor.py
